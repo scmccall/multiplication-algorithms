@@ -1,5 +1,0 @@
-
-
-describe("Javascript Default Multiplier", () => {
-
-});
