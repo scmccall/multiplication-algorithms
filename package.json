@@ -1,0 +1,11 @@
+{
+  "name": "multiplication-algorithms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sam McCall <smccall@smccall.com> (http://smccall.com)",
+  "license": "ISC"
+}
