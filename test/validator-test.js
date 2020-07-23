@@ -21,6 +21,18 @@ describe("Multiplication algorithm Validator", () => {
       expect(oneInput).to.equal(true);
     });
 
+    it("removes commas in a string", () => {
+      let oneComma = helper.removeCommasFromString("4,000");
+      let manyCommas = helper.removeCommasFromString("47,004,869,284,826")
+      let allCommas = helper.removeCommasFromString(",,,,,");
+      let noCommas = helper.removeCommasFromString("397832");
+
+      expect(oneComma).to.equal("4000");
+      expect(manyCommas).to.equal("47004869284826");
+      expect(allCommas).to.equal("");
+      expect(noCommas).to.equal("397832");
+    })
+
     it("throws error if the input is not a number", () => {
       let stringInput = helper.errorIfNotNumber("String");
       let booleanInput = helper.errorIfNotNumber(false);

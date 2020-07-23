@@ -10,6 +10,10 @@ module.exports = {
     }
   },
 
+  removeCommasFromString : (string) => {
+    return string.replace(/,/g,'');
+  },
+
   errorIfNotNumber : (notNumber) => {
     if (typeof(notNumber) != "number") {
       return `${notNumber} is not a valid entry. Please enter a positive integer.`;
