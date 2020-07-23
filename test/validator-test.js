@@ -11,7 +11,8 @@ describe("Multiplication algorithm Validator", () => {
       let fiveInputs = helper.errorIfNotOneInput(1,2,3,4,5);
       let oneInput = helper.errorIfNotOneInput(1)
 
-      const errorMessage1 = "No input detected. Please enter a positive integer.";
+      const errorMessage1 = 
+        "No input detected. Please enter a positive integer.";
       const errorMessage2 = 
         "Too many inputs detected. Please enter ONE (1) positive integer.";
 
@@ -39,7 +40,8 @@ describe("Multiplication algorithm Validator", () => {
       let numberInput = helper.errorIfNotNumber(1);
       let numberWithDecimalPointInput = helper.errorIfNotNumber(34.95)
 
-      const errorMessage = "is not a valid entry. Please enter a positive integer."
+      const errorMessage = 
+        "is not a valid entry. Please enter a positive integer."
 
       expect(stringInput).to.equal(`String ${errorMessage}`);
       expect(booleanInput).to.equal(`false ${errorMessage}`);
@@ -51,15 +53,28 @@ describe("Multiplication algorithm Validator", () => {
       let negativeInput = helper.errorIfNegative(-1);
       let anotherNegativeInput = helper.errorIfNegative(-999);
 
-      const errorMessage = "is not a valid entry. Please enter a positive integer."
+      const errorMessage = 
+        "is not a valid entry. Please enter a positive integer."
 
       expect(negativeInput).to.equal(`-1 ${errorMessage}`);
       expect(anotherNegativeInput).to.equal(`-999 ${errorMessage}`);
     });
+  });
+  describe("Inputs confirm program limitations", () => {
+    it("gives an error when given a float", () => {
+      let float = helper.errorWhenInputIsFloat("34.95");
+      let fractionFloat = helper.errorWhenInputIsFloat("0.74");
+      let wholeNumberFloat = helper.errorWhenInputIsFloat("100.00")
+      let noDecimalPoint = helper.errorWhenInputIsFloat("98765");
 
-    // it("converts (numerical) strings to numbers", () => {
-    //   let stringNumber = helper.stringToNumber("1");
-    //   let anotherStringNumber
-    // });
+      const errorMessage = 
+        "Currently this program only accepts whole positive integers. Please "
+        + "remove any input with a decimal point.";
+
+      expect(float).to.equal(errorMessage);
+      expect(fractionFloat).to.equal(errorMessage);
+      expect(wholeNumberFloat).to.equal(errorMessage);
+      expect(noDecimalPoint).to.equal(true);
+    });
   });
 });
