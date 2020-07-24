@@ -32,7 +32,15 @@ describe("Multiplication algorithm Validator", () => {
       expect(manyCommas).to.equal("47004869284826");
       expect(allCommas).to.equal("");
       expect(noCommas).to.equal("397832");
-    })
+    });
+
+    it("converts numerical strings to numbers", () => {
+      let numberString = helper.convertStringToNumber("4000");
+      let floatString = helper.convertStringToNumber("305.18");
+
+      expect(numberString).to.equal(4000);
+      expect(floatString).to.equal(305.18);
+    });
 
     it("throws error if the input is not a number", () => {
       let stringInput = helper.errorIfNotNumber("String");
@@ -48,17 +56,6 @@ describe("Multiplication algorithm Validator", () => {
       expect(numberInput).to.equal(true);
       expect(numberWithDecimalPointInput).to.equal(true);
     })
-
-    it("throws an error if input is a negative number", () => {
-      let negativeInput = helper.errorIfNegative(-1);
-      let anotherNegativeInput = helper.errorIfNegative(-999);
-
-      const errorMessage = 
-        "is not a valid entry. Please enter a positive integer."
-
-      expect(negativeInput).to.equal(`-1 ${errorMessage}`);
-      expect(anotherNegativeInput).to.equal(`-999 ${errorMessage}`);
-    });
   });
   describe("Inputs confirm program limitations", () => {
     it("gives an error when given a float", () => {
@@ -75,6 +72,16 @@ describe("Multiplication algorithm Validator", () => {
       expect(fractionFloat).to.equal(errorMessage);
       expect(wholeNumberFloat).to.equal(errorMessage);
       expect(noDecimalPoint).to.equal(true);
+    });
+    it("throws an error if input is a negative number", () => {
+      let negativeInput = helper.errorIfNegative(-1);
+      let anotherNegativeInput = helper.errorIfNegative(-999);
+
+      const errorMessage = 
+        "is not a valid entry. Please enter a positive integer."
+
+      expect(negativeInput).to.equal(`-1 ${errorMessage}`);
+      expect(anotherNegativeInput).to.equal(`-999 ${errorMessage}`);
     });
   });
 });

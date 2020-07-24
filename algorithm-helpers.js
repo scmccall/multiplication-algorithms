@@ -15,6 +15,10 @@ module.exports = {
     return string.replace(/,/g,'');
   },
 
+  convertStringToNumber: (string) => {
+    return parseFloat(string);
+  },
+
   errorIfNotNumber : (notNumber) => {
     if (typeof(notNumber) != "number") {
       return `${notNumber} is not a valid entry. `
@@ -41,9 +45,4 @@ module.exports = {
       return true
     }
   },
-
-
-
-
 }
-
