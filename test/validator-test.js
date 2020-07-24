@@ -84,4 +84,32 @@ describe("Multiplication algorithm Validator", () => {
       expect(anotherNegativeInput).to.equal(`-999 ${errorMessage}`);
     });
   });
+   describe("program returns as expected", () => {
+    it("returns errors for improper input", () => {
+      let noInput = helper.inputValidator();
+      // let twoInputs = helper.inputValidator("1", "2");
+      // let stringInput = helper.inputValidator("hello");
+      // let anotherStringInput = helper.inputValidator("1343j");
+      // let booleanInput = helper.inputValidator(true);
+
+      const noInputError = 
+        "No input detected. Please enter a positive integer.";
+      const twoInputsError = 
+        "Too many inputs detected. Please enter ONE (1) positive integer.";
+      const generalError = 
+        "is not a valid entry. Please enter a positive integer."
+
+      expect(noInput).to.equal(noInputError);
+      // expect(twoInputs).to.equal(twoInputsError);
+      // expect(stringInput).to.equal(`hello ${generalError}`);
+      // expect(anotherStringInput).to.equal(`1343j ${generalError}`);
+      // expect(booleanInput).to.equal(`false ${generalError}`);
+    });
+    it("returns error for unsupported input", () => {
+
+    });
+    it("returns numbers for proper input", () => {
+
+    });
+  })
 });
