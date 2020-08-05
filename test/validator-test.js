@@ -1,7 +1,7 @@
 // test/calidator-test.js
 
 let expect = require('chai').expect;
-let helper = require('../algorithm-helpers')
+let helper = require('../validator/validator-helpers')
 
 describe("Multiplication algorithm Validator", () => {
   describe("Inputs are valid positive numbers", () => {
