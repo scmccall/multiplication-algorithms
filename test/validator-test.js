@@ -5,7 +5,7 @@ let helper = require('../algorithm-helpers')
 
 describe("Multiplication algorithm Validator", () => {
   describe("Inputs are valid positive numbers", () => {
-    it("throws error if there is not one input", () => {
+    it("throws error if there is not exactly one input", () => {
       let noInput = helper.errorIfNotOneInput();
       let twoInputs = helper.errorIfNotOneInput(1,2);
       let fiveInputs = helper.errorIfNotOneInput(1,2,3,4,5);
