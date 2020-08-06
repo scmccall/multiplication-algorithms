@@ -1,4 +1,8 @@
-const traditionalMethod = function(a, b) {
+const algorithms = require('./algorithms');
+
+// a, b : Number
+// method : String
+const multiplyWithMethod = function(a, b, method) {
   let totalIsNegative = false;
   if (this.isNegative(a)) {
     totalIsNegative = !totalIsNegative;
@@ -8,18 +12,12 @@ const traditionalMethod = function(a, b) {
     totalIsNegative = !totalIsNegative;
     b = Math.abs(b);
   } 
+
   a = convertNumberToArray(a);
   b = convertNumberToArray(b);
-  let sum = 0;
-  for (i=0; i < a.length; i++) {
-    for (j=0; j < b.length; j++) {
-      // console.log(`a[i] = ${a[i]}`);
-      // console.log(`b[j] = ${b[j]}`);
-      let productString = (a[i] * b[j])
-      // console.log(`productString = ${productString}`);
-      sum += Number(productString);
-    }
-  }
+
+  let sum = multiplicationMethodCaller(a, b, method);
+  // console.log(`sum= ${sum}`);
   return (totalIsNegative) ? (-sum) : sum
 };
 
@@ -35,9 +33,19 @@ const isNegative = function(number) {
   return (number < 0) ? true : false;
 };
 
+const multiplicationMethodCaller = function(a, b, method) {
+  if (method == "traditional") {
+    return algorithms.traditionalMethod(a, b)
+  };
+  if (method == "test") {
+    return algorithms.testMethod(a, b);
+  };
+};
+
 module.exports = { 
-  traditionalMethod,
+  multiplyWithMethod,
   convertNumberToArray,
   convertArrayToNumber,
   isNegative,
+  multiplicationMethodCaller,
  };
