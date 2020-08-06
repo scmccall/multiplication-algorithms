@@ -2,6 +2,7 @@
 
 let expect = require('chai').expect;
 let helper = require('../validator/validator-helpers')
+let validator = require('../validator/validator')
 
 describe("Multiplication algorithm Validator", () => {
   describe("Inputs are valid positive numbers", () => {
@@ -61,36 +62,50 @@ describe("Multiplication algorithm Validator", () => {
     it("gives an error when given a float", () => {
       let float = helper.errorWhenInputIsFloat("34.95");
       let fractionFloat = helper.errorWhenInputIsFloat("0.74");
-      let wholeNumberFloat = helper.errorWhenInputIsFloat("100.00")
       let noDecimalPoint = helper.errorWhenInputIsFloat("98765");
 
       const errorMessage = 
-        "Currently this program only accepts whole positive integers. Please "
+        "Currently this program only accepts WHOLE positive integers. Please "
         + "remove any input with a decimal point.";
 
       expect(float).to.equal(errorMessage);
       expect(fractionFloat).to.equal(errorMessage);
-      expect(wholeNumberFloat).to.equal(errorMessage);
       expect(noDecimalPoint).to.equal(true);
+    });
+    it("removes a decimal point from a whole Number", () => {
+      let wholeInt = helper.removeDecimalFromInt(10.00);
+      let fractionalInt = helper.removeDecimalFromInt(11.97);
+
+      expect(wholeInt).to.equal(10);
+      expect(fractionalInt).to.equal(11);
     });
     it("throws an error if input is a negative number", () => {
       let negativeInput = helper.errorIfNegative(-1);
       let anotherNegativeInput = helper.errorIfNegative(-999);
 
       const errorMessage = 
-        "is not a valid entry. Please enter a positive integer."
+        "Currently this program only accepts whole POSITIVE integers. Please "
+        + "remove any input with a decimal point."
 
-      expect(negativeInput).to.equal(`-1 ${errorMessage}`);
-      expect(anotherNegativeInput).to.equal(`-999 ${errorMessage}`);
+      expect(negativeInput).to.equal(errorMessage);
+      expect(anotherNegativeInput).to.equal(errorMessage);
     });
   });
-   describe("program returns as expected", () => {
-    it("returns errors for improper input", () => {
-      let noInput = helper.inputValidator();
-      // let twoInputs = helper.inputValidator("1", "2");
-      // let stringInput = helper.inputValidator("hello");
-      // let anotherStringInput = helper.inputValidator("1343j");
-      // let booleanInput = helper.inputValidator(true);
+   describe("Validator uses helper functions successfully", () => {
+    it("returns numbers for proper input", () => {
+      let oneNumber = validator.inputValidator("1");
+      let biggerNumber = validator.inputValidator("10294793648732");
+      let commaNumber = validator.inputValidator("1,278");
+
+      expect(oneNumber).to.equal(1);
+      expect(biggerNumber).to.equal(10294793648732);
+      expect(commaNumber).to.equal(1278);
+    });
+    it("returns error for improper input", () => {
+      let noInput = validator.inputValidator();
+      let twoInputs = validator.inputValidator(1,2);
+      let stringInput = validator.inputValidator("String");
+      let booleanInput = validator.inputValidator(false);
 
       const noInputError = 
         "No input detected. Please enter a positive integer.";
@@ -99,17 +114,26 @@ describe("Multiplication algorithm Validator", () => {
       const generalError = 
         "is not a valid entry. Please enter a positive integer."
 
-      expect(noInput).to.equal(noInputError);
-      // expect(twoInputs).to.equal(twoInputsError);
-      // expect(stringInput).to.equal(`hello ${generalError}`);
-      // expect(anotherStringInput).to.equal(`1343j ${generalError}`);
-      // expect(booleanInput).to.equal(`false ${generalError}`);
+        expect(noInput).to.equal(noInputError)
+        expect(twoInputs).to.equal(twoInputsError);
+        expect(stringInput).to.equal(generalError);
+        expect(booleanInput).to.equal(generalError);
     });
     it("returns error for unsupported input", () => {
+      let negativeNumber = validator.inputValidator("-17");
+      let floatNumber = validator.inputValidator("2.014");
+      let intWithDecimal = validator.inputValidator("19.00");
 
-    });
-    it("returns numbers for proper input", () => {
+      const negativeError = 
+        "Currently this program only accepts whole POSITIVE integers. Please "
+        + "remove any input with a decimal point.";
 
+      const floatError = 
+      "Currently this program only accepts WHOLE positive integers. Please "
+      + "remove any input with a decimal point.";
+
+      expect(negativeNumber).to.equal(negativeError);
+      expect(floatNumber).to.equal(floatError);
     });
   })
 });

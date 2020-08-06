@@ -30,20 +30,26 @@ module.exports = {
 
   errorIfNegative : (negativeNumber) => {
     if (negativeNumber < 0) {
-      return `${negativeNumber} is not a valid entry. `
-              + "Please enter a positive integer."
+      return "Currently this program only accepts whole POSITIVE integers. "
+            + "Please remove any input with a decimal point."
     } else {
       return true
     }
   },
 
   errorWhenInputIsFloat : (float) => {
-    if (float.includes('.')) {
-      return "Currently this program only accepts whole positive integers. "
+    // console.log(`float % 1 = ${float % 1}`);
+    // if (float.includes('.')) {
+    if (float % 1 != 0) {
+      return "Currently this program only accepts WHOLE positive integers. "
             + "Please remove any input with a decimal point."
     } else {
       return true
     }
   },
+
+  removeDecimalFromInt : (int) => {
+    return Math.trunc(int);
+  }
   
 }
