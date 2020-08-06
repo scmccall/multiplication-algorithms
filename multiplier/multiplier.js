@@ -4,11 +4,11 @@ const algorithms = require('./algorithms');
 // method : String
 const multiplyWithMethod = function(a, b, method) {
   let totalIsNegative = false;
-  if (this.isNegative(a)) {
+  if (isNegative(a)) {
     totalIsNegative = !totalIsNegative;
     a = Math.abs(a);
   }
-  if (this.isNegative(b)) {
+  if (isNegative(b)) {
     totalIsNegative = !totalIsNegative;
     b = Math.abs(b);
   } 
