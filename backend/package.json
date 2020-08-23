@@ -9,7 +9,7 @@
   "author": "Sam McCall <smccall@smccall.com> (http://smccall.com)",
   "license": "ISC",
   "devDependencies": {
-    "chai": "*",
-    "mocha": "*"
+    "chai": "^4.2.0",
+    "mocha": "^8.1.1"
   }
 }
