@@ -1,8 +1,8 @@
 // test/calidator-test.js
 
 let expect = require('chai').expect;
-let helper = require('../validator/validator-helpers')
-let validator = require('../validator/validator')
+let helper = require('../assets/validator/validator-helpers')
+let validator = require('../assets/validator/validator')
 
 describe("validator.js", () => {
   describe("Inputs are valid positive numbers", () => {

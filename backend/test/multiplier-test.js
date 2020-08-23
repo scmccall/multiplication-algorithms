@@ -1,5 +1,5 @@
 let expect = require('chai').expect;
-let multiplier = require('../multiplier/multiplier');
+let multiplier = require('../assets/multiplier/multiplier');
 
 describe("multiplier.js", () => {
   describe("Helper functions all work as intended", () => {
