@@ -65,7 +65,7 @@ describe("Multiplication algorithm Validator", () => {
       let noDecimalPoint = helper.errorWhenInputIsFloat("98765");
 
       const errorMessage = 
-        "Currently this program only accepts WHOLE positive integers. Please "
+        "Currently this program only accepts whole positive integers. Please "
         + "remove any input with a decimal point.";
 
       expect(float).to.equal(errorMessage);
@@ -84,7 +84,7 @@ describe("Multiplication algorithm Validator", () => {
       let anotherNegativeInput = helper.errorIfNegative(-999);
 
       const errorMessage = 
-        "Currently this program only accepts whole POSITIVE integers. Please "
+        "Currently this program only accepts whole positive integers. Please "
         + "remove any input with a decimal point."
 
       expect(negativeInput).to.equal(errorMessage);
@@ -105,19 +105,18 @@ describe("Multiplication algorithm Validator", () => {
       let noInput = validator.inputValidator();
       let twoInputs = validator.inputValidator(1,2);
       let stringInput = validator.inputValidator("String");
-      let booleanInput = validator.inputValidator(false);
 
       const noInputError = 
         "No input detected. Please enter a positive integer.";
       const twoInputsError = 
         "Too many inputs detected. Please enter ONE (1) positive integer.";
       const generalError = 
-        "is not a valid entry. Please enter a positive integer."
+        "Currently this program only accepts whole positive integers. Please "
+        + "remove any input with a decimal point."
 
         expect(noInput).to.equal(noInputError)
         expect(twoInputs).to.equal(twoInputsError);
         expect(stringInput).to.equal(generalError);
-        expect(booleanInput).to.equal(generalError);
     });
     it("returns error for unsupported input", () => {
       let negativeNumber = validator.inputValidator("-17");
@@ -125,11 +124,11 @@ describe("Multiplication algorithm Validator", () => {
       let intWithDecimal = validator.inputValidator("19.00");
 
       const negativeError = 
-        "Currently this program only accepts whole POSITIVE integers. Please "
+        "Currently this program only accepts whole positive integers. Please "
         + "remove any input with a decimal point.";
 
       const floatError = 
-      "Currently this program only accepts WHOLE positive integers. Please "
+      "Currently this program only accepts whole positive integers. Please "
       + "remove any input with a decimal point.";
 
       expect(negativeNumber).to.equal(negativeError);

@@ -12,7 +12,9 @@ module.exports = {
     // instead of an Object for the other helper functions to work
     const oneInput = someInput[0];
 
-    const oneNum = helper.convertStringToNumber(oneInput);
+    const noComaInput = helper.removeCommasFromString(oneInput);
+
+    const oneNum = helper.convertStringToNumber(noComaInput);
 
     // console.log(`oneNum = ${oneNum}`);
     // console.log(`typeof(oneNum) = ${typeof(oneNum)}`);
@@ -30,8 +32,7 @@ module.exports = {
     };
 
     const noDecimalNum = helper.removeDecimalFromInt(oneNum);
-    const noCommaNum = helper.removeCommasFromString(noDecimalNum);
-    const finalNum = helper.convertStringToNumber(noCommaNum);
+    const finalNum = helper.convertStringToNumber(noDecimalNum);
     return finalNum;
   }
 
