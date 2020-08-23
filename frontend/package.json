@@ -8,6 +8,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "serialize-javascript": "^4.0.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
