@@ -2,7 +2,7 @@ let expect = require('chai').expect;
 let multiplierTool = require('../multiplier/multiplier');
 let multiply = multiplierTool.multiplyWithMethod
 
-describe("Multiplication Algorithm Testing", () => {
+describe("algorithms.js", () => {
   describe("Traditional Algorithm", () => {
     it("Multiplies single-digit (+) numbers", () => {
       let singleDigitPositive = multiply(3, 4, 'traditional');

@@ -1,7 +1,7 @@
 let expect = require('chai').expect;
 let multiplier = require('../multiplier/multiplier');
 
-describe("Multiplier Tool", () => {
+describe("multiplier.js", () => {
   describe("Helper functions all work as intended", () => {
     it("Converts a Number into an array of its digits", () => {
       let singleDigit = multiplier.convertNumberToArray(4);

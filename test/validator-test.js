@@ -4,7 +4,7 @@ let expect = require('chai').expect;
 let helper = require('../validator/validator-helpers')
 let validator = require('../validator/validator')
 
-describe("Multiplication algorithm Validator", () => {
+describe("validator.js", () => {
   describe("Inputs are valid positive numbers", () => {
     it("throws error if there is not exactly one input", () => {
       let noInput = helper.errorIfNotOneInput();
