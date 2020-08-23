@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+<<<<<<< HEAD
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -39,4 +40,18 @@
     "last 2 versions",
     "not dead"
   ]
+=======
+    "test:unit": "vue-cli-service test:unit"
+  },
+  "dependencies": {
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-unit-mocha": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/test-utils": "^1.0.3",
+    "chai": "^4.1.2",
+    "vue-template-compiler": "^2.6.11"
+  }
+>>>>>>> backend-timer
 }

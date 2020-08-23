@@ -1,4 +1,4 @@
-const multiplier = require('./assets/multiplier/multiplier');
+const multiplier = require('../assets/multiplier/multiplier');
 
 const multiplyWithTimer = function(a, b, method) {
   let time = process.hrtime();
