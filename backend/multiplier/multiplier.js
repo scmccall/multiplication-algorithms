@@ -1,5 +1,12 @@
 const algorithms = require('./algorithms');
 
+const multiplyWithTime = function(a, b, method) {
+  let time = process.hrtime();
+  let product = multiplyWithMethod(a, b, method);
+  time = process.hrtime(time);
+  return [product, time]
+};
+
 // a, b : Number
 // method : String
 const multiplyWithMethod = function(a, b, method) {
