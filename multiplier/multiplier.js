@@ -11,13 +11,10 @@ const multiplyWithMethod = function(a, b, method) {
   if (isNegative(b)) {
     totalIsNegative = !totalIsNegative;
     b = Math.abs(b);
-  } 
+  }
 
-  a = convertNumberToArray(a);
-  b = convertNumberToArray(b);
-
-  let sum = multiplicationMethodCaller(a, b, method);
-  // console.log(`sum= ${sum}`);
+  const sum = multiplicationMethodCaller(a, b, method)
+  
   return (totalIsNegative) ? (-sum) : sum
 };
 
@@ -35,8 +32,13 @@ const isNegative = function(number) {
 
 const multiplicationMethodCaller = function(a, b, method) {
   if (method == "traditional") {
+    a = convertNumberToArray(a);
+    b = convertNumberToArray(b);
     return algorithms.traditionalMethod(a, b)
   };
+  if (method == 'karatsuba') {
+    return algorithms.karatsubaMethod(a, b);
+  }
   if (method == "test") {
     return algorithms.testMethod(a, b);
   };

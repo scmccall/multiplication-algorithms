@@ -66,39 +66,3 @@ describe("multiplier.js", () => {
     });
   });
 });
-
-
-
-
-
-// describe("Uses all the helper functions properly", () => {
-//   let singleDigit = multiplier.multiplyWithMethod(3, 4, 'test');
-
-//   expect(singleDigit).to.equal(12);
-
-
-
-    // describe("Single digit multiplication", () => {
-
-    //   it("Multiplies single digit positive numbers", () => {
-    //     let singlePositiveDigits = multiplier.traditionalMethod(3, 4);
-    //     expect(singlePositiveDigits).to.equal(12);
-    //   });
-
-    //   it("Multiplies single digit negative numbers", () => {
-    //     let singleNegativeDigits = multiplier.traditionalMethod(-5, -9);
-    //     expect(singleNegativeDigits).to.equal(45);
-    //   });
-
-    //   it("Multiplies single digit positive and negative numbers", () => {
-    //     let mixedSingleDigits = multiplier.traditionalMethod(-1, 8);
-    //     expect(mixedSingleDigits).to.equal(-8);
-    //   });
-    // });
-
-    // describe.skip("Multi-digit multiplication", () => {
-    //   it("Multiplies positive 2-digit numbers", () => {
-    //     let twoDigitNumbers = multiplier.traditionalMethod(10, 12);
-    //     expect(twoDigitNumbers).to.equal(120);
-    //   });
-    // });
