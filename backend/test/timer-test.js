@@ -1,5 +1,5 @@
 let expect = require('chai').expect;
-let timer = require('../timer');
+let timer = require('../assets/timer');
 
 describe("timer.js", () => {
   describe("Returns time for function", () => {

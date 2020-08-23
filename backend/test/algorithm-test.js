@@ -1,5 +1,5 @@
 let expect = require('chai').expect;
-let multiplierTool = require('../multiplier/multiplier');
+let multiplierTool = require('../assets/multiplier/multiplier');
 let multiply = multiplierTool.multiplyWithMethod
 
 describe("algorithms.js", () => {
